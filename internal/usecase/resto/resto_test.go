@@ -6,6 +6,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/dhavisiregar/go-restaurant-app/internal/mocks"
 	"github.com/dhavisiregar/go-restaurant-app/internal/model"
 	"github.com/dhavisiregar/go-restaurant-app/internal/model/constant"
 	"github.com/dhavisiregar/go-restaurant-app/internal/repository/menu"
@@ -95,7 +96,7 @@ func Test_restoUsecase_Order(t *testing.T) {
 				orderRepo: tt.fields.orderRepo,
 				userRepo:  tt.fields.userRepo,
 			}
-			got, err := r.Order(tt.args.ctx, tt.args.request)
+			got, err := r.Order(tt.args.ctx, tt.args.menuType)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("restoUsecase.Order() error = %v, wantErr %v", err, tt.wantErr)
 				return
